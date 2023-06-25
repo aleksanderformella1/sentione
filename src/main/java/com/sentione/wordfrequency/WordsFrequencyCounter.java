@@ -25,11 +25,11 @@ class WordsFrequencyCounter {
     if (input == null) {
       return List.of();
     }
-    
+
     try (BufferedReader reader = new BufferedReader(new InputStreamReader(input, UTF_8))) {
       final Map<String, Long> result = new HashMap<>();
-      String line;
-      while ((line = reader.readLine()) != null) {
+      
+      for (String line; (line = reader.readLine()) != null;) {
         matchAndCountWords(line, result);
       }
       
