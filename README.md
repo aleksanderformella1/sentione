@@ -11,7 +11,7 @@ it will count word frequency in the 16MB file containing 1 million of unique str
 
 Another example is the file containing some real text repeated thousands of times, which resulted of ~49MB file with 378 unique strings:
 ```bash
-curl http://localhost:8080/count -F file=@input_unique_words.txt
+curl http://localhost:8080/count -F file=@input_repeating_words.txt
 ```
 On my machine, it lasted about 1.5s and took ~130MB of memory:
 ![img.png](img.png)
