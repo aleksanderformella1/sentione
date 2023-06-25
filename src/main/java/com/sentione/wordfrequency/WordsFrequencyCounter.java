@@ -25,18 +25,15 @@ class WordsFrequencyCounter {
     if (input == null) {
       return List.of();
     }
+    
     try (BufferedReader reader = new BufferedReader(new InputStreamReader(input, UTF_8))) {
       final Map<String, Long> result = new HashMap<>();
       String line;
       while ((line = reader.readLine()) != null) {
         matchAndCountWords(line, result);
       }
-      return result
-          .entrySet()
-          .stream()
-          .map(entry -> new WordCount(entry.getKey(), entry.getValue()))
-          .sorted()
-          .toList();
+      
+      return mapToWordCountAndSort(result);
     }
   }
 
@@ -48,5 +45,14 @@ class WordsFrequencyCounter {
           .compute(word, (key, val) ->
               (val == null) ? 1 : val + 1);
     }
+  }
+  
+  private static List<WordCount> mapToWordCountAndSort(Map<String, Long> result) {
+    return result
+        .entrySet()
+        .stream()
+        .map(entry -> new WordCount(entry.getKey(), entry.getValue()))
+        .sorted()
+        .toList();
   }
 }
