@@ -18,6 +18,6 @@ On my machine, it lasted about 1.5s and took ~130MB of memory:
 
 Last example is the 46MB file containing ~90k unique words taken from 1 million random generated strings corpus. Counting lasted ~2s and took ~200MB of memory:
 ```bash
-curl http://localhost:8080/count -F file=@input_largest_words.txt
+curl http://localhost:8080/count -F file=@input_largest_memory.txt
 ```
 ![img_1.png](img_1.png)
